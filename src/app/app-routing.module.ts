@@ -1,11 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { RoutesSearchComponent } from "./routes-search/routes-search.component";
+import { RouteComponent } from "./route/route.component";
 
-
-const routes: Routes = [];
+const routes: Routes = [
+	{ path: "", component: RoutesSearchComponent },
+	{ path: "routes/:id", component: RouteComponent, data: { animation: 'isRight' } },
+	{ path: "**", redirectTo: "/" },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
