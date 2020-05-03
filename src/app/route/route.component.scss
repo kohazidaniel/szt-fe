@@ -1,3 +1,111 @@
 .route-container {
-    margin: 50px;
+	margin: 50px;
+
+	.route-item {
+		width: 60px;
+		height: 50px;
+		margin: 10px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 50px;
+		font-size: 24px;
+		color: #fff;
+		border-radius: 4px;
+	}
+
+	.route-title {
+		margin: 0px;
+		font-size: 24px;
+	}
+
+	body {
+		padding: 25px;
+		font-family: sans-serif;
+	}
+
+	.timeline {
+		white-space: nowrap;
+		overflow-x: scroll;
+		padding: 30px 0 10px 0;
+		position: relative;
+	}
+
+	.entry {
+		display: inline-block;
+		vertical-align: top;
+		background: #3f51b5;
+		color: #fff;
+		padding: 10px;
+		font-size: 12px;
+		text-align: center;
+		position: relative;
+		margin: 0px 15px;
+		border-top: 4px solid #6c7ac7;
+		border-radius: 3px;
+		min-width: 200px;
+		max-width: 500px;
+	}
+
+	.entry:after {
+		content: "";
+		display: block;
+		background: #eee;
+		width: 7px;
+		height: 7px;
+		border-radius: 6px;
+		border: 3px solid #6c7ac7;
+		position: absolute;
+		left: 50%;
+		top: -30px;
+		margin-left: -6px;
+	}
+
+	.entry:before {
+		content: "";
+		display: block;
+		background: #6c7ac7;
+		width: 5px;
+		height: 20px;
+		position: absolute;
+		left: 50%;
+		top: -20px;
+		margin-left: -2px;
+	}
+
+	.entry h1 {
+		color: #fff;
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
+	.bar {
+		height: 4px;
+		background: #eee;
+		width: 100%;
+		position: relative;
+		top: 13px;
+		left: 0;
+	}
+}
+
+.map {
+    margin: 0px 50px;
+	agm-map {
+		height: 600px;
+	}
+}
+
+@media screen and (max-width: 1279px) {
+	.route-container {
+        margin: 25px;
+		.route-title {
+			font-size: 16px;
+		}
+	}
+	.map {
+        margin: 0px;
+        agm-map {
+            height: 500px;
+        }
+	}
 }

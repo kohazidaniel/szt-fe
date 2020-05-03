@@ -1,6 +1,52 @@
 <div *ngIf="!isLoading" class="route-container">
-    <div>
-
-        <h2>{{ route.route_long_name }}</h2>
-    </div>
+	<div fxLayout="row" fxLayoutAlign="start center">
+		<div
+			class="route-item"
+			[ngStyle]="{ 'background-color': getBackgroundColor() }"
+			[matBadge]="route.route_desc ? 'K' : ''"
+			matBadgePosition="above after"
+			matBadgeColor="warn"
+		>
+			{{ route.route_short_name.substring(0, 3) }}
+		</div>
+		<p class="route-title">{{ route.route_long_name }}</p>
+		<span fxFlex></span>
+		<button
+			fxHide
+			fxShow.gt-sm
+			mat-fab
+			color="primary"
+			(click)="toggleDirection()"
+		>
+			<mat-icon *ngIf="direction === 1">arrow_back</mat-icon>
+			<mat-icon *ngIf="direction === 0">arrow_forward</mat-icon>
+		</button>
+		<button
+			fxHide
+			fxShow.lt-sm
+			mat-mini-fab
+			color="primary"
+			(click)="toggleDirection()"
+		>
+			<mat-icon *ngIf="direction === 1">arrow_back</mat-icon>
+			<mat-icon *ngIf="direction === 0">arrow_forward</mat-icon>
+		</button>
+	</div>
+	<div class="bar"></div>
+	<div class="timeline">
+		<div class="entry" *ngFor="let stop of filterDirection()">
+			<h1>{{ stop.name }}</h1>
+		</div>
+	</div>
+</div>
+<div *ngIf="!isLoading" class="map">
+	<agm-map [zoom]="13" [latitude]="46.25301" [longitude]="20.141424">
+		<agm-marker
+			*ngFor="let stop of filterDirection()"
+			[latitude]="stop.lat"
+			[longitude]="stop.lon"
+			[title]="stop.name"
+		>
+		</agm-marker>
+	</agm-map>
 </div>

@@ -4,7 +4,7 @@ export class Stop {
 	lat: string;
 	lon: string;
 	stop_sequence: number;
-	arrival_time: string;
+	arrival_time:number;
 	direction_id: number;
 
 	constructor(data: Partial<Stop>) {

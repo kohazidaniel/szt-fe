@@ -117,18 +117,21 @@
 			matBadgePosition="above after"
 			matBadgeColor="warn"
 			class="route-item"
-            [ngStyle]="{ 'background-color': getBackgroundColor(route) }"
-            [routerLink]="'/routes/' + route.id"
+			[ngStyle]="{ 'background-color': getBackgroundColor(route) }"
+			[routerLink]="'/routes/' + route.id"
 		>
 			{{ route.route_short_name }}
 		</div>
 	</div>
-	<div class="empty-route-container" *ngIf="!(routeList.length > 0) || isLoading">
+	<div
+		class="empty-route-container"
+		*ngIf="!(routeList.length > 0) || isLoading"
+	>
 		<div class="empty-message" *ngIf="!isLoading">
-            Nincs találat
-        </div>
-        <div *ngIf="isLoading">
-            <mat-spinner  diameter="100"></mat-spinner>
-        </div>
+			Nincs találat
+		</div>
+		<div *ngIf="isLoading">
+			<mat-spinner diameter="100"></mat-spinner>
+		</div>
 	</div>
 </div>

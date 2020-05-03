@@ -9,11 +9,19 @@ import { HttpClientModule } from "@angular/common/http";
 import { RoutesSearchComponent } from "./routes-search/routes-search.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { NavbarComponent } from './navbar/navbar.component';
-import { RouteComponent } from './route/route.component';
+import { NavbarComponent } from "./navbar/navbar.component";
+import { RouteComponent } from "./route/route.component";
+import { FooterComponent } from "./footer/footer.component";
+import { AgmCoreModule } from "@agm/core";
 
 @NgModule({
-	declarations: [AppComponent, RoutesSearchComponent, NavbarComponent, RouteComponent],
+	declarations: [
+		AppComponent,
+		RoutesSearchComponent,
+		NavbarComponent,
+		RouteComponent,
+		FooterComponent,
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -22,6 +30,9 @@ import { RouteComponent } from './route/route.component';
 		HttpClientModule,
 		ReactiveFormsModule,
 		FlexLayoutModule,
+		AgmCoreModule.forRoot({
+			apiKey: "AIzaSyC1gbNxn-WA_Ry6jfSieYYYGrTxyrB1B9M",
+		}),
 	],
 	providers: [],
 	bootstrap: [AppComponent],

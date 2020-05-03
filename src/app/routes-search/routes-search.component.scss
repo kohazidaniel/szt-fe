@@ -2,7 +2,6 @@
 	margin: 50px;
 	.form-card {
         width: 400px;
-        height: 450px;
 	}
 
 	.route-container {
@@ -44,7 +43,8 @@
 
 @media screen and (max-width: 1279px) {
 	.route-search-container {
-		margin: 5px;
+        margin: 5px;
+        margin-top: 20px;
 		.form-card {
 			width: 80%;
             margin: auto;
