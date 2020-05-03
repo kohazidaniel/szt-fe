@@ -2,13 +2,12 @@
 	"name": "szeged-transport",
 	"version": "0.0.0",
 	"scripts": {
-        "heroku-postbuild": "ng build --prod",
 		"ng": "ng",
 		"start": "ng serve",
 		"build": "ng build",
 		"test": "ng test",
 		"lint": "ng lint",
-		"e2e": "ng e2e"
+        "e2e": "ng e2e"
 	},
 	"private": true,
 	"dependencies": {
