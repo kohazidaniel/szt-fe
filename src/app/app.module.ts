@@ -13,6 +13,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { RouteComponent } from "./route/route.component";
 import { FooterComponent } from "./footer/footer.component";
 import { AgmCoreModule } from "@agm/core";
+import { HelperSheetComponent } from './helper-sheet/helper-sheet.component';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { AgmCoreModule } from "@agm/core";
 		NavbarComponent,
 		RouteComponent,
 		FooterComponent,
+		HelperSheetComponent,
 	],
 	imports: [
 		BrowserModule,

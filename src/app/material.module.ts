@@ -41,6 +41,7 @@ import { MatTreeModule } from "@angular/material/tree";
 
 import { MatDatetimepickerModule } from "@mat-datetimepicker/core";
 import { MatMomentDatetimeModule } from "@mat-datetimepicker/moment";
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 @NgModule({
 	imports: [
@@ -79,7 +80,8 @@ import { MatMomentDatetimeModule } from "@mat-datetimepicker/moment";
 		MatTreeModule,
 		MatNativeDateModule,
 		MatDatetimepickerModule,
-		MatMomentDatetimeModule,
+        MatMomentDatetimeModule,
+        MatBottomSheetModule
 	],
 	exports: [
 		MatAutocompleteModule,
@@ -118,6 +120,7 @@ import { MatMomentDatetimeModule } from "@mat-datetimepicker/moment";
 		MatNativeDateModule,
 		MatDatetimepickerModule,
 		MatMomentDatetimeModule,
+        MatBottomSheetModule
 	],
 	providers: [],
 })

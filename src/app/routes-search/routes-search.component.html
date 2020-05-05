@@ -5,7 +5,7 @@
 	fxLayoutGap="40px"
 	fxLayoutGap.lt-lg="10px"
 >
-	<mat-card class="form-card">
+	<mat-card class="form-card" fxLayout="column">
 		<h1 style="text-align: center;">Járatok szűrése</h1>
 		<form
 			[formGroup]="filterForm"
@@ -100,14 +100,22 @@
 					</mat-option>
 				</mat-autocomplete>
 			</mat-form-field>
-			<mat-checkbox color="primary" formControlName="occasionalRoutes"
-				>Tartalmazza a különjáratokat</mat-checkbox
-			>
+			<mat-checkbox color="primary" formControlName="occasionalRoutes">
+				Tartalmazza a különjáratokat
+			</mat-checkbox>
 			<button type="submit" mat-raised-button color="primary">
 				Szűrés
 			</button>
 		</form>
-		<mat-card-actions> </mat-card-actions>
+		<span fxFlex></span>
+		<button
+			class="helper-button"
+			mat-button
+			color="primary"
+			(click)="openHelpSheet()"
+		>
+			Súgó
+		</button>
 	</mat-card>
 
 	<div class="route-container" *ngIf="routeList.length > 0 && !isLoading">

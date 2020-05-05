@@ -7,6 +7,8 @@ import { StopService } from "../core/services/stop.service";
 import { Observable } from "rxjs";
 import { map, startWith } from "rxjs/operators";
 import { MatAutocompleteSelectedEvent } from "@angular/material/autocomplete";
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { HelperSheetComponent } from '../helper-sheet/helper-sheet.component';
 
 @Component({
 	selector: "app-routes-search",
@@ -29,7 +31,8 @@ export class RoutesSearchComponent implements OnInit {
 	constructor(
 		private routeService: RouteService,
 		private stopService: StopService,
-		private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private bottomSheet: MatBottomSheet
 	) {
 		this.filterForm = this.formBuilder.group({
 			routeLongName: new FormControl(""),
@@ -51,7 +54,15 @@ export class RoutesSearchComponent implements OnInit {
 				return this._filterStops(value);
 			})
 		);
+
+		this.filterForm.controls.occasionalRoutes.valueChanges.subscribe(() =>
+			this.searchRoutes()
+		);
 	}
+
+    openHelpSheet() {
+        this.bottomSheet.open(HelperSheetComponent);
+    }
 
 	loadStops() {
 		this.stopService
@@ -79,8 +90,9 @@ export class RoutesSearchComponent implements OnInit {
 		selectedStops = null
 	) {
 		this.routeList = [];
-        this.isLoading = true;
-        let showOccasional: Boolean = this.filterForm.controls.occasionalRoutes.value;
+		this.isLoading = true;
+		let showOccasional: Boolean = this.filterForm.controls.occasionalRoutes
+			.value;
 
 		this.routeService
 			.getRoutes(fromTime, toTime, selectedStops)
@@ -97,11 +109,11 @@ export class RoutesSearchComponent implements OnInit {
 								.includes(routeLongName.toLowerCase())
 						) {
 							continue;
-                        }
+						}
 
-                        if (!showOccasional && res[key].route_desc) {
-                            continue;
-                        }
+						if (!showOccasional && res[key].route_desc) {
+							continue;
+						}
 
 						switch (res[key].route_type) {
 							case "3":
